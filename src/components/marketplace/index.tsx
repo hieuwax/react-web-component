@@ -1,7 +1,8 @@
-import { Button, Grid, Typography } from "@mui/material";
 import { ethers } from "ethers";
 import { ExternalProvider } from "@ethersproject/providers";
 import { useEffect, useState } from "react";
+import { Button, Row } from "antd";
+import GalleryPage from "../../pages/Gallery";
 
 declare global {
   interface Window {
@@ -37,16 +38,19 @@ export default function MarketPlace({ collection }: Props) {
       console.log("Please Install Metamask!!!");
     }
   };
+
   return (
-    <Grid>
-      <Typography variant="h5">Wax connect metamask</Typography>
-      <Typography mt={2} variant="body1">
-        Address: {state.address}
-      </Typography>
-      {!state.address && (
-        <Button onClick={(e) => connectWalletHandler()}>Connect</Button>
-      )}
-    </Grid>
+    <Row>
+      <div style={{ padding: 32, borderBottom: "1px solid #fff" }}>
+        <h3>Test connect meta mask</h3>
+        <p>Address: {state.address}</p>
+        {!state.address && (
+          <Button onClick={(e) => connectWalletHandler()}>Connect</Button>
+        )}
+      </div>
+      <h3 style={{ padding: "0px 32px" }}>Test display nft</h3>
+      <GalleryPage />
+    </Row>
   );
 }
 interface State {

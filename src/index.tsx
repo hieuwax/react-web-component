@@ -10,8 +10,11 @@ class WebComponentWrapper extends React.Component<{ collection: string }, {}> {
   };
 
   render() {
-
-    return <MarketPlace collection={this.props.collection} />;
+    return (
+      <div style={{ backgroundColor: "#000", color: "#fff" }}>
+        <MarketPlace collection={this.props.collection} />
+      </div>
+    );
   }
 }
 
@@ -19,9 +22,14 @@ WebComponentWrapper.propTypes = {
   collection: PropTypes.string,
 };
 
-const waxMarketPlace = reactToWebComponent(WebComponentWrapper, React, ReactDOM, {
-  dashStyleAttributes: true,
-});
+const waxMarketPlace = reactToWebComponent(
+  WebComponentWrapper,
+  React,
+  ReactDOM,
+  {
+    dashStyleAttributes: true,
+  }
+);
 // const wcChecklistShadow = reactToWebComponent(
 //   WebComponentWrapper,
 //   React,
